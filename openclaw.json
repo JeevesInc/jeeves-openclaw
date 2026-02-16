@@ -1,0 +1,41 @@
+{
+  "gateway": {
+    "mode": "local",
+    "bind": "lan",
+    "port": 18789
+  },
+  "agents": {
+    "defaults": {
+      "workspace": "~/.openclaw/workspace",
+      "model": {
+        "primary": "google/gemini-3-pro-preview"
+      }
+    },
+    "list": [
+      {
+        "id": "main",
+        "identity": {
+          "name": "OpenClaw",
+          "theme": "helpful AI assistant",
+          "emoji": "🦞"
+        }
+      }
+    ]
+  },
+  "channels": {
+    "slack": {
+      "enabled": true,
+      "botToken": "${SLACK_BOT_TOKEN}",
+      "appToken": "${SLACK_APP_TOKEN}",
+      "dmPolicy": "pairing",
+      "groupPolicy": "allowlist"
+    }
+  },
+  "env": {
+    "vars": {
+      "GEMINI_API_KEY": "${GEMINI_API_KEY}",
+      "SLACK_BOT_TOKEN": "${SLACK_BOT_TOKEN}",
+      "SLACK_APP_TOKEN": "${SLACK_APP_TOKEN}"
+    }
+  }
+}
